@@ -5,10 +5,12 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 
+import java.io.IOException;
 
 
 public class Main extends Application {
@@ -21,27 +23,52 @@ public class Main extends Application {
     public void start(Stage primaryStage) throws Exception{
         Parent root = FXMLLoader.load(getClass().getResource("sample.fxml"));
         primaryStage.setTitle("Hello World");
-        primaryStage.setScene(new Scene(root, 300, 275));
+        primaryStage.setScene(new Scene(root, 400, 300));
         primaryStage.show();
-        /*
-        loginButton.setOnAction(e -> {
-            String text = idTextField.getText();
-            sample.Application.ValidId(Long.parseLong(text));
-        });
-        */
 
         Button loginButton = (Button) root.lookup("#loginButton");
         TextField idTextField = (TextField) root.lookup("#idTextField");
 
         // Add an event handler to the loginButton
+        // Add an event handler to the loginButton
         loginButton.setOnAction(e -> {
             String text = idTextField.getText();
-            long id = Long.parseLong(text);
-            Person person = Application.ValidId(id);
+            if(text.length() > 0) {
+                long id = Long.parseLong(text);
+            } else {
+                Alert alert = new Alert(Alert.AlertType.ERROR);
+                alert.setTitle("Invalid ID");
+                alert.setHeaderText(null);
+                alert.setContentText("The entered ID is not valid.");
+                alert.showAndWait();
+            }
+            //Person person = Application.ValidId(id);
+            Person person = new Person(12, "Mariah");
             if (person != null) {
                 // Do something with the Person object
+
+                // Create a new window
+                Stage newStage = new Stage();
+                Parent newRoot = null;
+                try {
+                    newRoot = FXMLLoader.load(getClass().getResource("pageTwo.fxml"));
+                } catch (IOException ioException) {
+                    ioException.printStackTrace();
+                }
+                newStage.setTitle("New Window");
+                newStage.setScene(new Scene(newRoot, 300, 250));
+                newStage.show();
+
+                // Close the existing window
+                Stage currentStage = (Stage) loginButton.getScene().getWindow();
+                currentStage.close();
             } else {
                 // Handle the case where the ID is not valid
+                Alert alert = new Alert(Alert.AlertType.ERROR);
+                alert.setTitle("Invalid ID");
+                alert.setHeaderText(null);
+                alert.setContentText("The entered ID is not valid.");
+                alert.showAndWait();
             }
         });
     }

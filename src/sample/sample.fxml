@@ -3,11 +3,20 @@
 <?import javafx.geometry.*?>
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
 
 <VBox alignment="CENTER" spacing="10.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1">
-    <Label text="Enter your ID:">
+   <Label layoutX="69.0" layoutY="30.0" text="AutoGrader">
+      <font>
+         <Font name="Courier New Bold" size="26.0" />
+      </font>
       <VBox.margin>
          <Insets top="20.0" />
+      </VBox.margin>
+   </Label>
+    <Label text="Enter your ID:">
+      <VBox.margin>
+         <Insets />
       </VBox.margin></Label>
     <TextField fx:id="idTextField" promptText="ID">
       <opaqueInsets>

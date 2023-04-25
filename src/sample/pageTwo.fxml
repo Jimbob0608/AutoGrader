@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<VBox alignment="CENTER" minHeight="300.0" minWidth="250.0" spacing="10.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1">
+   <Label layoutX="69.0" layoutY="30.0" text="AutoGrader">
+      <font>
+         <Font name="Courier New Bold" size="26.0" />
+      </font>
+      <VBox.margin>
+         <Insets top="20.0" />
+      </VBox.margin>
+   </Label>
+   <Label text="Select Coursework to mark:">
+      <VBox.margin>
+         <Insets />
+      </VBox.margin></Label>
+   <HBox alignment="CENTER">
+      <children>
+         <Button prefHeight="70.0" prefWidth="100.0" text="Perfect">
+            <HBox.margin>
+               <Insets right="10.0" />
+            </HBox.margin>
+         </Button>
+         <Button mnemonicParsing="false" prefHeight="70.0" prefWidth="100.0" text="Fail" />
+      </children>
+      <padding>
+         <Insets bottom="10.0" left="10.0" right="10.0" />
+      </padding>
+   </HBox>
+   <VBox alignment="CENTER">
+      <children>
+         <Label alignment="TOP_CENTER" prefWidth="230.0" text="Grade and Percentage:">
+            <VBox.margin>
+               <Insets top="10.0" />
+            </VBox.margin>
+            <font>
+               <Font size="15.0" />
+            </font>
+         </Label>
+         <HBox alignment="TOP_CENTER" prefWidth="200.0">
+            <children>
+               <Label alignment="CENTER" prefHeight="45.0" prefWidth="115.0" text="XX%">
+                  <font>
+                     <Font name="System Bold" size="20.0" />
+                  </font></Label>
+               <Label alignment="CENTER" prefHeight="44.0" prefWidth="115.0" text="XX Marks">
+                  <font>
+                     <Font size="20.0" />
+                  </font></Label>
+            </children>
+            <opaqueInsets>
+               <Insets />
+            </opaqueInsets>
+            <VBox.margin>
+               <Insets bottom="20.0" top="10.0" />
+            </VBox.margin>
+         </HBox>
+      </children>
+   </VBox>
+</VBox>

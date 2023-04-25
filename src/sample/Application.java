@@ -15,12 +15,12 @@ public class Application {
     private int scoreCounter;
     private double scorePercentage;
 
-    private int submissionCalculator () {
-        List<String> markSchemeList = null;
-        List<String> submissionList = null;
+    private int submissionCalculator() {
+        List<String> markSchemeList = new ArrayList<String>();
+        List<String> submissionList = new ArrayList<String>();
         markSchemeList = readFromFile("mark-scheme-example.txt");
         submissionList = readFromFile("fail-submission-example.txt");
-        for (String element: markSchemeList) {
+        for (String element : markSchemeList) {
             if (element.matches(submissionList.get(markSchemeList.indexOf(element)))) {
                 scoreCounter += 1;
             }
@@ -29,17 +29,17 @@ public class Application {
         return scoreCounter;
     }
 
-    private double submissionPercentageCalculator(int score, int maxScore) {
-        return (score/maxScore) * 100;
+    private void submissionPercentageCalculator(int score, int maxScore) {
+        scorePercentage = ((double) score / maxScore) * 100;
     }
 
-    protected Person ValidId(long id) {
+    public Person ValidId(long id) {
         List<Long> teacherIds = convertToIdList(readFromFile("teacher-id-list.txt"));
         if (teacherIds.contains(id)) {
             return new Teacher(32, "Tu Tor", id, true);
         } else {
             List<Long> studentIds = convertToIdList(readFromFile("student-id-list.txt"));
-            if(studentIds.contains(id)) {
+            if (studentIds.contains(id)) {
                 return new Student(21, "Stu Dent", id, false, true);
             } else {
                 // Return null if the ID is not valid
@@ -72,9 +72,10 @@ public class Application {
     }
 
     private List<Long> convertToIdList(List<String> fileContents) {
-        List<Long> idList = null;
+        List<Long> idList = new ArrayList<Long>();
         for (String element : fileContents) {
             idList.add(Long.parseLong(element));
         }
+        return idList;
     }
 }
