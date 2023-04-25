@@ -1,12 +1,21 @@
 package sample;
 
 import javafx.application.Application;
+import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Button;
+import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 
+
+
 public class Main extends Application {
+
+    @FXML
+    Button loginButton;
+    TextField idTextField;
 
     @Override
     public void start(Stage primaryStage) throws Exception{
@@ -14,6 +23,12 @@ public class Main extends Application {
         primaryStage.setTitle("Hello World");
         primaryStage.setScene(new Scene(root, 300, 275));
         primaryStage.show();
+        /*
+        loginButton.setOnAction(e -> {
+            String text = idTextField.getText();
+            sample.Application.ValidId(Long.parseLong(text));
+        });
+        */
     }
 
 
@@ -21,3 +36,5 @@ public class Main extends Application {
         launch(args);
     }
 }
+
+

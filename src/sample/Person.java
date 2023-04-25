@@ -2,9 +2,9 @@ package sample;
 
 public class Person {
     protected int Age;
-    protected int Name;
+    protected String Name;
 
-    public Person(int age, int name) {
+    public Person(int age, String name) {
         Age = age;
         Name = name;
     }
