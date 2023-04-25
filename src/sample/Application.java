@@ -15,6 +15,10 @@ public class Application {
     private int scoreCounter;
     private double scorePercentage;
 
+    /***
+     *
+     * @return
+     */
     private int submissionCalculator() {
         List<String> markSchemeList = new ArrayList<String>();
         List<String> submissionList = new ArrayList<String>();
@@ -39,8 +43,10 @@ public class Application {
             return new Teacher(32, "Tu Tor", id, true);
         } else {
             List<Long> studentIds = convertToIdList(readFromFile("student-id-list.txt"));
-            if (studentIds.contains(id)) {
-                return new Student(21, "Stu Dent", id, false, true);
+            if (studentIds.contains(id) && id < studentIds.get(14)) {
+                return new Student(21, "Stu Dent", false, id);
+            } else if (studentIds.contains(id) && id > studentIds.get(14)) {
+                return new Student(20, "Leah Ner", false, id);
             } else {
                 // Return null if the ID is not valid
                 return null;

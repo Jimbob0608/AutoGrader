@@ -19,10 +19,17 @@ public class Main extends Application {
     Button loginButton;
     TextField idTextField;
     private boolean alerted = false;
+    private long id;
+
+    /***
+     *
+     * @param primaryStage
+     * @throws Exception
+     */
 
     @Override
     public void start(Stage primaryStage) throws Exception{
-        Parent root = FXMLLoader.load(getClass().getResource("sample.fxml"));
+        Parent root = FXMLLoader.load(getClass().getResource("loginTab.fxml"));
         primaryStage.setTitle("Hello World");
         primaryStage.setScene(new Scene(root, 400, 300));
         primaryStage.show();
@@ -34,8 +41,8 @@ public class Main extends Application {
         // Add an event handler to the loginButton
         loginButton.setOnAction(e -> {
             String text = idTextField.getText();
-            if(text.length() > 0 && !text.matches("//d+")) {
-                long id = Long.parseLong(text);
+            if(text.length() > 0) {
+                id = Long.parseLong(text);
             } else {
                 alerted = true;
                 Alert alert = new Alert(Alert.AlertType.ERROR);
@@ -45,20 +52,22 @@ public class Main extends Application {
                 alert.showAndWait();
             }
             //Person person = Application.ValidId(id);
-            Person person = new Person(12, "Mariah");
+            Person person = new Person(31, "Mariah", true);
             if (person != null) {
-                // Do something with the Person object
-
                 // Create a new window
                 Stage newStage = new Stage();
                 Parent newRoot = null;
                 try {
-                    newRoot = FXMLLoader.load(getClass().getResource("pageTwo.fxml"));
+                    if (!person.isTeacher) {
+                        newRoot = FXMLLoader.load(getClass().getResource("studentTab.fxml"));
+                    } else if (person.isTeacher) {
+                        newRoot = FXMLLoader.load(getClass().getResource("teacherTab.fxml"));
+                    }
                 } catch (IOException ioException) {
                     ioException.printStackTrace();
                 }
                 newStage.setTitle("New Window");
-                newStage.setScene(new Scene(newRoot, 300, 250));
+                newStage.setScene(new Scene(newRoot, 300, 400));
                 newStage.show();
 
                 // Close the existing window
@@ -75,7 +84,10 @@ public class Main extends Application {
         });
     }
 
-
+    /***
+     *
+     * @param args
+     */
     public static void main(String[] args) {
         launch(args);
     }
