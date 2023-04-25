@@ -23,7 +23,7 @@
       <font>
          <Font name="System Bold" size="15.0" />
       </font></Label>
-    <TextField fx:id="idTextField" alignment="CENTER" maxWidth="300.0" prefWidth="300.0" promptText="ID" style="-fx-background-color: transparent; -fx-border-color: linear-gradient(to top left, #6D8ACC, #CC8ACC); -fx-border-width: 0 0 2 0;" styleClass="white-text-field" stylesheets="@stylesheet.css">
+    <TextField fx:id="idTextField" alignment="CENTER" maxWidth="300.0" prefWidth="300.0" promptText="ID" style="-fx-border-color: linear-gradient(to top left, #6D8ACC, #CC8ACC); -fx-border-width: 0 0 2 0; -fx-background-color: rgba(255, 255, 255, 0.2);" styleClass="white-text-field" stylesheets="@stylesheet.css">
       <opaqueInsets>
          <Insets />
       </opaqueInsets>

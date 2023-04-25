@@ -30,11 +30,11 @@
       </font></Label>
    <VBox alignment="TOP_CENTER" prefWidth="100.0">
       <children>
-         <Button mnemonicParsing="false" prefWidth="150.0" style="-fx-background-color: #7696DB;" text="Stu Dent" textFill="WHITE">
+         <Button mnemonicParsing="false" prefWidth="150.0" style="-fx-background-color: rgba(255, 255, 255, 0.3);" styleClass="white-text-field" stylesheets="@stylesheet.css" text="Stu Dent" textFill="WHITE">
             <VBox.margin>
                <Insets bottom="10.0" />
             </VBox.margin></Button>
-         <Button prefWidth="150.0" style="-fx-background-color: #7696DB;" text="Leah Ner" textFill="WHITE">
+         <Button prefWidth="150.0" style="-fx-background-color: rgba(255, 255, 255, 0.3);" styleClass="white-text-field" stylesheets="@stylesheet.css" text="Leah Ner" textFill="WHITE">
             <VBox.margin>
                <Insets bottom="10.0" />
             </VBox.margin>
