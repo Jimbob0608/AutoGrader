@@ -29,6 +29,21 @@ public class Main extends Application {
             sample.Application.ValidId(Long.parseLong(text));
         });
         */
+
+        Button loginButton = (Button) root.lookup("#loginButton");
+        TextField idTextField = (TextField) root.lookup("#idTextField");
+
+        // Add an event handler to the loginButton
+        loginButton.setOnAction(e -> {
+            String text = idTextField.getText();
+            long id = Long.parseLong(text);
+            Person person = Application.ValidId(id);
+            if (person != null) {
+                // Do something with the Person object
+            } else {
+                // Handle the case where the ID is not valid
+            }
+        });
     }
 
 
