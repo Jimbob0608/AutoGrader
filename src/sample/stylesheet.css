@@ -1,0 +1,5 @@
+.white-text-field {
+    -fx-text-fill: white;
+    -fx-font-weight: bold;
+    -fx-background-color: rgba(255, 255, 255, 0.8);
+}

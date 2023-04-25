@@ -7,6 +7,7 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
+import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 
@@ -53,6 +54,7 @@ public class Main extends Application {
             }
             //Person person = Application.ValidId(id);
             Person person = new Person(31, "Mariah", true);
+            //Person person = new Person(31, "Mariah", false);
             if (person != null) {
                 // Create a new window
                 Stage newStage = new Stage();
@@ -60,8 +62,12 @@ public class Main extends Application {
                 try {
                     if (!person.isTeacher) {
                         newRoot = FXMLLoader.load(getClass().getResource("studentTab.fxml"));
+                        Label studentWecomeMessage = (Label) newRoot.lookup("#studentWelcomeMessage");
+                        studentWecomeMessage.setText("Welcome " + person.getName() + "!");
                     } else if (person.isTeacher) {
                         newRoot = FXMLLoader.load(getClass().getResource("teacherTab.fxml"));
+                        Label teacherWecomeMessage = (Label) newRoot.lookup("#teacherWelcomeMessage");
+                        teacherWecomeMessage.setText("Welcome " + person.getName() + "!");
                     }
                 } catch (IOException ioException) {
                     ioException.printStackTrace();

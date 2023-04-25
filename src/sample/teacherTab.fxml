@@ -7,8 +7,8 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<VBox alignment="CENTER" minHeight="300.0" minWidth="250.0" spacing="10.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1">
-   <Label layoutX="69.0" layoutY="30.0" text="AutoGrader">
+<VBox alignment="CENTER" minHeight="300.0" minWidth="250.0" spacing="10.0" style="-fx-background-color: linear-gradient(to top left, #69B2FF, #FFB2FF); -fx-border-color: linear-gradient(to top left, #6D8ACC, #CC8ACC); -fx-border-width: 3 3 3 3;" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1">
+   <Label layoutX="69.0" layoutY="30.0" text="AutoGrader" textFill="WHITE">
       <font>
          <Font name="Courier New Bold" size="26.0" />
       </font>
@@ -16,22 +16,25 @@
          <Insets top="20.0" />
       </VBox.margin>
    </Label>
-   <Label layoutX="66.0" layoutY="80.0" text="Welcome XXXXX!">
+   <Label fx:id="teacherWelcomeMessage" layoutX="66.0" layoutY="80.0" text="Welcome -----!" textFill="WHITE">
       <font>
-         <Font size="16.0" />
+         <Font name="System Bold" size="16.0" />
       </font>
    </Label>
-   <Label text="Select Student Submission to view:">
+   <Label text="Select Student Submission to view:" textFill="WHITE">
       <VBox.margin>
          <Insets />
-      </VBox.margin></Label>
+      </VBox.margin>
+      <font>
+         <Font size="13.0" />
+      </font></Label>
    <VBox alignment="TOP_CENTER" prefWidth="100.0">
       <children>
-         <Button mnemonicParsing="false" text="Stu Dent">
+         <Button mnemonicParsing="false" prefWidth="150.0" style="-fx-background-color: #7696DB;" text="Stu Dent" textFill="WHITE">
             <VBox.margin>
                <Insets bottom="10.0" />
             </VBox.margin></Button>
-         <Button text="Leah Ner">
+         <Button prefWidth="150.0" style="-fx-background-color: #7696DB;" text="Leah Ner" textFill="WHITE">
             <VBox.margin>
                <Insets bottom="10.0" />
             </VBox.margin>
@@ -43,7 +46,7 @@
    </VBox>
    <VBox alignment="CENTER">
       <children>
-         <Label alignment="TOP_CENTER" prefWidth="230.0" text="Grade and Percentage:">
+         <Label alignment="TOP_CENTER" prefWidth="230.0" text="Grade and Percentage:" textFill="WHITE">
             <VBox.margin>
                <Insets top="10.0" />
             </VBox.margin>
@@ -53,11 +56,11 @@
          </Label>
          <HBox alignment="TOP_CENTER" prefWidth="200.0">
             <children>
-               <Label alignment="CENTER" prefHeight="45.0" prefWidth="115.0" text="XX%">
+               <Label alignment="CENTER" prefHeight="45.0" prefWidth="115.0" text="--%" textFill="WHITE">
                   <font>
                      <Font size="20.0" />
                   </font></Label>
-               <Label alignment="CENTER" prefHeight="44.0" prefWidth="115.0" text="XX Marks">
+               <Label alignment="CENTER" prefHeight="44.0" prefWidth="115.0" text="-- Marks" textFill="WHITE">
                   <font>
                      <Font size="20.0" />
                   </font></Label>

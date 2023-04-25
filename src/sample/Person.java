@@ -17,4 +17,30 @@ public class Person {
         Name = name;
         isTeacher = isTeacher;
     }
+
+
+    public int getAge() {
+        return Age;
+    }
+
+    public void setAge(int age) {
+        Age = age;
+    }
+
+    public String getName() {
+        return Name;
+    }
+
+    public void setName(String name) {
+        Name = name;
+    }
+
+    public boolean isTeacher() {
+        return isTeacher;
+    }
+
+    public void setTeacher(boolean teacher) {
+        isTeacher = teacher;
+    }
+
 }
