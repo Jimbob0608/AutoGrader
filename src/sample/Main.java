@@ -18,6 +18,7 @@ public class Main extends Application {
     @FXML
     Button loginButton;
     TextField idTextField;
+    private boolean alerted = false;
 
     @Override
     public void start(Stage primaryStage) throws Exception{
@@ -33,9 +34,10 @@ public class Main extends Application {
         // Add an event handler to the loginButton
         loginButton.setOnAction(e -> {
             String text = idTextField.getText();
-            if(text.length() > 0) {
+            if(text.length() > 0 && !text.matches("//d+")) {
                 long id = Long.parseLong(text);
             } else {
+                alerted = true;
                 Alert alert = new Alert(Alert.AlertType.ERROR);
                 alert.setTitle("Invalid ID");
                 alert.setHeaderText(null);
@@ -62,12 +64,12 @@ public class Main extends Application {
                 // Close the existing window
                 Stage currentStage = (Stage) loginButton.getScene().getWindow();
                 currentStage.close();
-            } else {
+            } else if (!alerted){
                 // Handle the case where the ID is not valid
                 Alert alert = new Alert(Alert.AlertType.ERROR);
                 alert.setTitle("Invalid ID");
                 alert.setHeaderText(null);
-                alert.setContentText("The entered ID is not valid.");
+                alert.setContentText("The entered ID does not exist.");
                 alert.showAndWait();
             }
         });
