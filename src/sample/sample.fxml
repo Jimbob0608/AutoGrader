@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<VBox alignment="CENTER" spacing="10.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1">
+    <Label text="Enter your ID:">
+      <VBox.margin>
+         <Insets top="20.0" />
+      </VBox.margin></Label>
+    <TextField fx:id="idTextField" promptText="ID">
+      <opaqueInsets>
+         <Insets />
+      </opaqueInsets>
+      <VBox.margin>
+         <Insets left="20.0" right="20.0" />
+      </VBox.margin></TextField>
+    <Button text="Login">
+      <VBox.margin>
+         <Insets bottom="20.0" />
+      </VBox.margin></Button>
+</VBox>
