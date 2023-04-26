@@ -24,7 +24,7 @@
    </Label>
    <HBox alignment="CENTER">
       <children>
-         <Button disable="true" mnemonicParsing="false" prefHeight="25.0" style="-fx-background-color: rgba(255, 255, 255, 0.3);" styleClass="white-text-field" stylesheets="@stylesheet.css" text="Upload" textFill="WHITE">
+         <Button fx:id="UploadButton" mnemonicParsing="false" prefHeight="25.0" style="-fx-background-color: rgba(255, 255, 255, 0.3);" styleClass="white-text-field" stylesheets="@stylesheet.css" text="Upload" textFill="WHITE">
             <cursor>
                <Cursor fx:constant="HAND" />
             </cursor>
@@ -32,7 +32,7 @@
                <Insets right="5.0" />
             </HBox.margin>
          </Button>
-         <Button layoutX="57.0" layoutY="10.0" mnemonicParsing="false" prefWidth="150.0" style="-fx-background-color: rgba(255, 255, 255, 0.3);" styleClass="white-text-field" stylesheets="@stylesheet.css" text="SUBMIT ASSIGNMENT" textFill="WHITE">
+         <Button fx:id="SubmitButton" disable="true" layoutX="57.0" layoutY="10.0" mnemonicParsing="false" prefWidth="150.0" style="-fx-background-color: rgba(255, 255, 255, 0.3);" styleClass="white-text-field" stylesheets="@stylesheet.css" text="Upload file to submit." textFill="WHITE">
             <cursor>
                <Cursor fx:constant="HAND" />
             </cursor>
@@ -48,14 +48,14 @@
       </font></Label>
    <VBox alignment="TOP_CENTER" prefWidth="100.0">
       <children>
-         <Button mnemonicParsing="false" prefWidth="150.0" style="-fx-background-color: rgba(255, 255, 255, 0.3);" styleClass="white-text-field" stylesheets="@stylesheet.css" text="CS123 Submission" textFill="WHITE">
+         <Button fx:id="SubmissionOneButton" mnemonicParsing="false" prefWidth="150.0" style="-fx-background-color: rgba(255, 255, 255, 0.3);" styleClass="white-text-field" stylesheets="@stylesheet.css" text="CS123 Submission" textFill="WHITE">
             <VBox.margin>
                <Insets bottom="10.0" />
             </VBox.margin>
             <cursor>
                <Cursor fx:constant="HAND" />
             </cursor></Button>
-         <Button disable="true" prefWidth="150.0" style="-fx-background-color: rgba(255, 255, 255, 0.3);" styleClass="white-text-field" stylesheets="@stylesheet.css" text="Upload to view." textFill="WHITE">
+         <Button fx:id="SubmissionTwoButton" disable="true" prefWidth="150.0" style="-fx-background-color: rgba(255, 255, 255, 0.3);" styleClass="white-text-field" stylesheets="@stylesheet.css" text="Upload to view." textFill="WHITE">
             <VBox.margin>
                <Insets bottom="10.0" />
             </VBox.margin>
@@ -80,11 +80,11 @@
          </Label>
          <HBox alignment="TOP_CENTER" prefWidth="200.0">
             <children>
-               <Label alignment="CENTER" prefHeight="45.0" prefWidth="115.0" text="--%" textFill="WHITE">
+               <Label fx:id="PercentageLabel" alignment="CENTER" prefHeight="45.0" prefWidth="115.0" text="--%" textFill="WHITE">
                   <font>
                      <Font size="20.0" />
                   </font></Label>
-               <Label alignment="CENTER" prefHeight="44.0" prefWidth="115.0" text="-- Marks" textFill="WHITE">
+               <Label fx:id="MarkLabel" alignment="CENTER" prefHeight="44.0" prefWidth="115.0" text="-- Marks" textFill="WHITE">
                   <font>
                      <Font size="20.0" />
                   </font></Label>

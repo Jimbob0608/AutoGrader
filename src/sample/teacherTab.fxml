@@ -31,7 +31,7 @@
       </font></Label>
    <VBox alignment="TOP_CENTER" prefWidth="100.0">
       <children>
-         <Button mnemonicParsing="false" prefWidth="150.0" style="-fx-background-color: rgba(255, 255, 255, 0.3);" styleClass="white-text-field" stylesheets="@stylesheet.css" text="Stu Dent" textFill="WHITE">
+         <Button fx:id="StuDentButton" mnemonicParsing="false" prefWidth="150.0" style="-fx-background-color: rgba(255, 255, 255, 0.3);" styleClass="white-text-field" stylesheets="@stylesheet.css" text="Stu Dent" textFill="WHITE">
             <VBox.margin>
                <Insets bottom="10.0" />
             </VBox.margin>
@@ -39,7 +39,7 @@
                <Cursor fx:constant="HAND" />
             </cursor>
          </Button>
-         <Button prefWidth="150.0" style="-fx-background-color: rgba(255, 255, 255, 0.3);" styleClass="white-text-field" stylesheets="@stylesheet.css" text="Leah Ner" textFill="WHITE">
+         <Button fx:id="LeahNerButton" prefWidth="150.0" style="-fx-background-color: rgba(255, 255, 255, 0.3);" styleClass="white-text-field" stylesheets="@stylesheet.css" text="Leah Ner" textFill="WHITE">
             <VBox.margin>
                <Insets bottom="10.0" />
             </VBox.margin>
@@ -64,11 +64,11 @@
          </Label>
          <HBox alignment="TOP_CENTER" prefWidth="200.0">
             <children>
-               <Label alignment="CENTER" prefHeight="45.0" prefWidth="115.0" text="--%" textFill="WHITE">
+               <Label fx:id="PercentageLabel" alignment="CENTER" prefHeight="45.0" prefWidth="115.0" text="--%" textFill="WHITE">
                   <font>
                      <Font size="20.0" />
                   </font></Label>
-               <Label alignment="CENTER" prefHeight="44.0" prefWidth="115.0" text="-- Marks" textFill="WHITE">
+               <Label fx:id="MarkLabel" alignment="CENTER" prefHeight="44.0" prefWidth="115.0" text="-- Marks" textFill="WHITE">
                   <font>
                      <Font size="20.0" />
                   </font></Label>

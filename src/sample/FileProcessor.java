@@ -1,14 +1,12 @@
 package sample;
 
-import java.awt.*;
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
-import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Application {
+public class FileProcessor {
     private long teacherID;
     private long studentID;
     private boolean isTeacher;
@@ -19,30 +17,39 @@ public class Application {
      *
      * @return
      */
-    private int submissionCalculator() {
+    public int submissionCalculator(String fileName) {
+        scoreCounter = 0;
         List<String> markSchemeList = new ArrayList<String>();
         List<String> submissionList = new ArrayList<String>();
-        markSchemeList = readFromFile("mark-scheme-example.txt");
-        submissionList = readFromFile("fail-submission-example.txt");
+        markSchemeList = readFromFile("C:\\Users\\jamie\\IdeaProjects\\AutoGrader\\src\\sample\\Resources\\mark-scheme-example");
+        submissionList = readFromFile(fileName);
+        int counter = 0;
         for (String element : markSchemeList) {
-            if (element.matches(submissionList.get(markSchemeList.indexOf(element)))) {
+            if (element.matches(submissionList.get(counter))) {
                 scoreCounter += 1;
             }
+            counter++;
         }
-        submissionPercentageCalculator(scoreCounter, markSchemeList.size());
         return scoreCounter;
     }
 
-    private void submissionPercentageCalculator(int score, int maxScore) {
+    public int markSchemeSize() {
+        return readFromFile("C:\\Users\\jamie\\IdeaProjects\\AutoGrader\\src\\sample\\Resources\\mark-scheme-example").size();
+    }
+
+    public int submissionPercentageCalculator(int score, int maxScore) {
         scorePercentage = ((double) score / maxScore) * 100;
+        return (int) scorePercentage;
     }
 
     public Person ValidId(long id) {
-        List<Long> teacherIds = convertToIdList(readFromFile("teacher-id-list.txt"));
+        List<Long> teacherIds = convertToIdList(readFromFile("C:\\Users\\jamie\\IdeaProjects\\AutoGrader\\src\\" +
+                "sample\\Resources\\teacher-id-list"));
         if (teacherIds.contains(id)) {
             return new Teacher(32, "Tu Tor", id, true);
         } else {
-            List<Long> studentIds = convertToIdList(readFromFile("student-id-list.txt"));
+            List<Long> studentIds = convertToIdList(readFromFile("C:\\Users\\jamie\\IdeaProjects\\AutoGrader\\src\\" +
+                    "sample\\Resources\\student-id-list"));
             if (studentIds.contains(id) && id < studentIds.get(14)) {
                 return new Student(21, "Stu Dent", false, id);
             } else if (studentIds.contains(id) && id > studentIds.get(14)) {
@@ -51,6 +58,24 @@ public class Application {
                 // Return null if the ID is not valid
                 return null;
             }
+        }
+    }
+
+    public boolean isValidTeacherID(long id) {
+        List<Long> teacherIds = convertToIdList(readFromFile("C:\\Users\\jamie\\IdeaProjects\\AutoGrader\\src\\sample\\Resources\\teacher-id-list"));
+        if (teacherIds.contains(id)) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+
+    public boolean isValidStudentID(long id) {
+        List<Long> studentIds = convertToIdList(readFromFile("C:\\Users\\jamie\\IdeaProjects\\AutoGrader\\src\\sample\\Resources\\student-id-list"));
+        if (studentIds.contains(id) && id < studentIds.get(14)) {
+            return true;
+        } else {
+            return false;
         }
     }
 

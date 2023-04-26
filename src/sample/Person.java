@@ -2,37 +2,36 @@ package sample;
 
 
 public class Person {
-    protected int Age;
-    protected String Name;
+    protected int age;
+    protected String name;
     protected boolean isTeacher;
 
     /**
-     *
-     * @param age an int to represent the age of the user.
-     * @param name a string to represent the name of the user.
-     * @param isTeacher a boolean to distinguish teachers from students.
+     * @param Age       an int to represent the age of the user.
+     * @param Name      a string to represent the name of the user.
+     * @param IsTeacher a boolean to distinguish teachers from students.
      */
-    public Person(int age, String name, boolean isTeacher) {
-        Age = age;
-        Name = name;
-        isTeacher = isTeacher;
+    public Person(int Age, String Name, boolean IsTeacher) {
+        age = Age;
+        name = Name;
+        isTeacher = IsTeacher;
     }
 
 
     public int getAge() {
-        return Age;
+        return age;
     }
 
-    public void setAge(int age) {
-        Age = age;
+    public void setAge(int Age) {
+        age = Age;
     }
 
     public String getName() {
-        return Name;
+        return name;
     }
 
-    public void setName(String name) {
-        Name = name;
+    public void setName(String Name) {
+        name = Name;
     }
 
     public boolean isTeacher() {
