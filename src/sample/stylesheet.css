@@ -2,3 +2,7 @@
     -fx-text-fill: white;
     -fx-font-weight: bold;
 }
+
+.white-text-field:pressed {
+    -fx-cursor: CLOSED_HAND;
+}

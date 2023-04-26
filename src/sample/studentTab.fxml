@@ -22,6 +22,23 @@
          <Font name="System Bold" size="16.0" />
       </font>
    </Label>
+   <HBox alignment="CENTER">
+      <children>
+         <Button disable="true" mnemonicParsing="false" prefHeight="25.0" style="-fx-background-color: rgba(255, 255, 255, 0.3);" styleClass="white-text-field" stylesheets="@stylesheet.css" text="Upload" textFill="WHITE">
+            <cursor>
+               <Cursor fx:constant="HAND" />
+            </cursor>
+            <HBox.margin>
+               <Insets right="5.0" />
+            </HBox.margin>
+         </Button>
+         <Button layoutX="57.0" layoutY="10.0" mnemonicParsing="false" prefWidth="150.0" style="-fx-background-color: rgba(255, 255, 255, 0.3);" styleClass="white-text-field" stylesheets="@stylesheet.css" text="SUBMIT ASSIGNMENT" textFill="WHITE">
+            <cursor>
+               <Cursor fx:constant="HAND" />
+            </cursor>
+         </Button>
+      </children>
+   </HBox>
    <Label text="Select Submission to view:" textFill="WHITE">
       <VBox.margin>
          <Insets />
