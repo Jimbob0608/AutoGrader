@@ -22,7 +22,7 @@
          <Font name="System Bold" size="16.0" />
       </font>
    </Label>
-   <Label text="Select Student Submission to view:" textFill="WHITE">
+   <Label text="Select CS123 Student Submission to view:" textFill="WHITE">
       <VBox.margin>
          <Insets />
       </VBox.margin>
