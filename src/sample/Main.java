@@ -14,29 +14,37 @@ import javafx.stage.Stage;
 import java.io.IOException;
 
 public class Main extends Application {
-    @FXML
-    Button loginButton;
-    TextField idTextField;
+
+    // A boolean to represent whether a user has uploaded the inputted file.
     boolean uploaded = true;
+
+    // A boolean to represent whether a login error has been given to the user.
     private boolean alerted = false;
+
+    // A long integer to represent the id of the current user.
     private long id;
+
+    // Strings to represent the file paths of various resources required.
     private String perfectSubmission = "C:\\Users\\jamie\\IdeaProjects\\AutoGrader\\src\\sample\\Resources\\perfect-submission-example";
     private String failSubmission = "C:\\Users\\jamie\\IdeaProjects\\AutoGrader\\src\\sample\\Resources\\fail-submission-example";
     private String newSubmission = "C:\\Users\\jamie\\IdeaProjects\\AutoGrader\\src\\sample\\Resources\\new-submission-example";
 
-    /***
+    /**
+     * This method starts the program and handles FXML implementation.
      *
-     * @param primaryStage
-     * @throws Exception
+     * @param primaryStage this is the stage which will hold the login page.
+     * @throws IOException is the exception to be caught should the FXML fail.
      */
     @Override
-    public void start(Stage primaryStage) throws Exception {
+    public void start(Stage primaryStage) throws IOException {
+        //Create login page.
         Parent root = FXMLLoader.load(getClass().getResource("loginTab.fxml"));
         primaryStage.setTitle("AutoGrader by Jamie Jay Haughton/2007483");
         primaryStage.setScene(new Scene(root, 400, 300));
         primaryStage.show();
         Button loginButton = (Button) root.lookup("#loginButton");
         TextField idTextField = (TextField) root.lookup("#idTextField");
+        //Set login button functionality to check id validity.
         loginButton.setOnAction(e -> {
             String text = idTextField.getText();
             if (text.length() > 0) {
@@ -51,11 +59,12 @@ public class Main extends Application {
             }
             FileProcessor fileProcessor = new FileProcessor();
             Person person = fileProcessor.ValidId(id);
+            //If the id is valid then transition to relevant page.
             if (person != null) {
-                // Create a new window
                 Stage newStage = new Stage();
                 Parent newRoot = null;
                 try {
+                    //Transition to Student tab.
                     if (person.isTeacher == false) {
                         newRoot = FXMLLoader.load(getClass().getResource("studentTab.fxml"));
                         Label studentWecomeMessage = (Label) newRoot.lookup("#studentWelcomeMessage");
@@ -66,6 +75,7 @@ public class Main extends Application {
                         Button submitButton = (Button) newRoot.lookup("#SubmitButton");
                         Label percentageLabel = (Label) newRoot.lookup("#PercentageLabel");
                         Label markLabel = (Label) newRoot.lookup("#MarkLabel");
+                        //Create button functionality for the Student tab.
                         if (person.getName().equals("Stu Dent")) {
                             uploadButton.setOnAction(event -> {
                                 if (uploaded == true) {
@@ -104,7 +114,8 @@ public class Main extends Application {
                             percentageLabel.setText(percentageString + "%");
                             markLabel.setText(markString + "/" + fileProcessor.markSchemeSize());
                         });
-                    } else if (person.isTeacher == true) {
+                        // Transition to teacher tab.
+                    } else if (person.isTeacher) {
                         newRoot = FXMLLoader.load(getClass().getResource("teacherTab.fxml"));
                         Label teacherWecomeMessage = (Label) newRoot.lookup("#teacherWelcomeMessage");
                         teacherWecomeMessage.setText("Welcome " + person.getName() + "!");
@@ -112,6 +123,7 @@ public class Main extends Application {
                         Button leahNerButton = (Button) newRoot.lookup("#LeahNerButton");
                         Label percentageLabel = (Label) newRoot.lookup("#PercentageLabel");
                         Label markLabel = (Label) newRoot.lookup("#MarkLabel");
+                        //Set button functionality for teacher tab.
                         stuDentButton.setOnAction(event -> {
                             int mark = fileProcessor.submissionCalculator(perfectSubmission);
                             String markString = String.valueOf(mark);
@@ -132,6 +144,7 @@ public class Main extends Application {
                 } catch (IOException ioException) {
                     ioException.printStackTrace();
                 }
+                //Set parameters for the previously specified tab/scene.
                 newStage.setTitle("AutoGrader - " + person.getName());
                 newStage.setScene(new Scene(newRoot, 300, 400));
                 newStage.show();
@@ -150,8 +163,9 @@ public class Main extends Application {
     }
 
     /***
-     *
-     * @param args
+     * The main entry point for the application. Launches the JavaFX application by calling
+     * the launch() method with the given arguments.
+     * @param args an array of command-line arguments passed to the application.
      */
     public static void main(String[] args) {
         launch(args);

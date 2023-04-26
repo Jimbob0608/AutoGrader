@@ -1,45 +1,85 @@
 package sample;
 
 
+/**
+ * This class represents a Person with an age, name, and teacher status.
+ * It contains methods to get and set the age, name, and teacher status of the person.
+ */
 public class Person {
+
+    // The age of the Person.
     protected int age;
+
+    // The name of the Person.
     protected String name;
+
+    // Whether the Person is a teacher or not.
     protected boolean isTeacher;
 
     /**
-     * @param Age       an int to represent the age of the user.
-     * @param Name      a string to represent the name of the user.
-     * @param IsTeacher a boolean to distinguish teachers from students.
+     * Constructor to create a new Person object.
+     *
+     * @param age       An int representing the age of the user.
+     * @param name      A string representing the name of the user.
+     * @param isTeacher A boolean representing whether the user is a teacher or not.
      */
-    public Person(int Age, String Name, boolean IsTeacher) {
-        age = Age;
-        name = Name;
-        isTeacher = IsTeacher;
+    public Person(int age, String name, boolean isTeacher) {
+        this.age = age;
+        this.name = name;
+        this.isTeacher = isTeacher;
     }
 
-
+    /**
+     * Returns the age of the user.
+     *
+     * @return An int representing the age of the user.
+     */
     public int getAge() {
         return age;
     }
 
-    public void setAge(int Age) {
-        age = Age;
+    /**
+     * Sets the age of the user.
+     *
+     * @param age An int representing the age of the user.
+     */
+    public void setAge(int age) {
+        this.age = age;
     }
 
+    /**
+     * Returns the name of the user.
+     *
+     * @return A string representing the name of the user.
+     */
     public String getName() {
         return name;
     }
 
-    public void setName(String Name) {
-        name = Name;
+    /**
+     * Sets the name of the user.
+     *
+     * @param name A string representing the name of the user.
+     */
+    public void setName(String name) {
+        this.name = name;
     }
 
+    /**
+     * Returns whether the user is a teacher or not.
+     *
+     * @return A boolean representing whether the user is a teacher or not.
+     */
     public boolean isTeacher() {
         return isTeacher;
     }
 
-    public void setTeacher(boolean teacher) {
-        isTeacher = teacher;
+    /**
+     * Sets whether the user is a teacher or not.
+     *
+     * @param isTeacher A boolean representing whether the user is a teacher or not.
+     */
+    public void setTeacher(boolean isTeacher) {
+        this.isTeacher = isTeacher;
     }
-
 }
