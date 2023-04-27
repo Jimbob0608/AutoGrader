@@ -54,7 +54,7 @@
    </VBox>
    <VBox alignment="CENTER">
       <children>
-         <Label alignment="TOP_CENTER" prefWidth="230.0" text="Grade and Percentage:" textFill="WHITE">
+         <Label alignment="TOP_CENTER" prefWidth="230.0" text="Percentage and Grade:" textFill="WHITE">
             <VBox.margin>
                <Insets top="10.0" />
             </VBox.margin>
